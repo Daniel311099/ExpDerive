@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: ExpDerive
+Version: 0.1.0
+Summary: A Python package for deriving custom columns
+Home-page: https://github.com/Daniel311099/ExpDerive.git
+Author: Daniel Fisaha
+Author-email: DanielFisaha@Gmail.com
+License: BSD 2-clause
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
