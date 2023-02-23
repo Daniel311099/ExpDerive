@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='ExpDerive',
-    version='0.1.0',    
+    version='0.1.2',    
     description='A Python package for deriving custom columns',
     url='https://github.com/Daniel311099/ExpDerive.git',
     author='Daniel Fisaha',
@@ -10,8 +10,10 @@ setup(
     license='BSD 2-clause',
     packages=['ExpDerive'],
     install_requires=[
-                      'numpy',                     
-                      ],
+        'numpy',
+        "sympy==1.10.1",
+        "antlr4-python3-runtime==4.7.2"
+    ],
 
     classifiers=[
         'Development Status :: 1 - Planning',
