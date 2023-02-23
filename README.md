@@ -9,3 +9,9 @@
 - use correct sympy, antl4r versions for parse_latex to work
 - parameterising the resolvers not olny allows for custom expressions but also allows for custom filters on which subects to reolve the expressions for
 - stat can be preprocessed in resolver, may not necassarily be the raw data e.g could be normalised
+
+- complex expression trees can be pickeled and unpickled when needed if cheaper than re-evaluating
+
+- extract the expression phrase from the request and use that to generate the latex string
+
+- use a map of placeholders/aliases(only alphanumeric and should be globally unique, not necassary to encode the actual label), that appear in the latex string, to the unique column labels(allow all characters) in the var_resolver along with the namespace var to identify the column being refered to
