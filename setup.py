@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='ExpDerive',
-    version='0.1.2',    
+    version='0.1.3',    
     description='A Python package for deriving custom columns',
     url='https://github.com/Daniel311099/ExpDerive.git',
     author='Daniel Fisaha',
