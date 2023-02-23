@@ -6,6 +6,8 @@ from sympy.core.function import AppliedUndef
 # import Expression from sympy
 from sympy.core.expr import Expr
 
+from ExpDerive.derive.imports import expression, evaluate
+
 class Variable(TypedDict):
     custom: bool # leaf or not
     plc: Optional[str]
@@ -17,14 +19,9 @@ class ResolverReturn(TypedDict):
     latex: str
     variables: Optional[List[Variable]]
 
-class Func():
-    # TODO:
-    # defines a function object,
-    # a tree structure that is callable and is able to flatten itself out
-    # can be defined with a latex string or a pure python function
-    # wrap eval with a function that takes a string and returns the evaluated value
-    # refactor, move some functions from VAR to here 
-    pass
+
+    
+
 
 class Var():
     def __init__(self, name, leaf, latex=None, namespace=None):
@@ -95,7 +92,7 @@ class Var():
             func = func_resolver(f.func)
             args = f.args
             definition = parse_latex(func['latex']) 
-            params = definition.atoms(Symbol)
+            params = definition.atoms(Symbol) # this is wrong, args may be in different order to order in latex string
             for p, a in zip(params, args):
                 definition = definition.subs(p, a)
             unpacked = self.unpack_func(definition, func_resolver)
@@ -129,6 +126,7 @@ class ExpTree():
         self.exp_resolver = exp_resolver
         self.eval_resolver = eval_resolver
         self.variables: Optional[List] = None
+        self.functions = None
         self.flattened = None
         self.namespace = namespace
         self.tree = None
@@ -139,6 +137,7 @@ class ExpTree():
     def build_expression(self):
         # TODO: add an args param to the resolver
         tree = Var(self.name, False, self.latex, self.namespace)
+        self.functions = tree.expression.atoms(AppliedUndef)
         
         # tree.sub_funcs(self.func_resolver)
 
@@ -149,6 +148,14 @@ class ExpTree():
         # sub funcs
         self.tree = tree
         self.variables = tree.expression.atoms(Symbol)
+
+    def check_python_funcs(self):
+        for f in self.functions:
+            function = self.func_resolver(f.func)
+            if function['type'] == 'python':
+                return True
+
+        return False
 
     # def flatten(self, expression: Expr):
     #     # exp = parse_latex(self.latex)
@@ -213,3 +220,37 @@ class ExpTree():
 #             raise Exception("Undefined function: {}".format(v.func))
 #         v.func = resolver[v.func]
 #     return exp
+
+class ExpAPI():
+    def __init__(self, latex: str, plc_resolver=None, record_resolver=None, func_resolver=None, namespace=None):
+        self.plc_resolver = plc_resolver
+        self.record_resolver = record_resolver
+        self.func_resolver = func_resolver
+        self.latex = latex
+        self.expression = expression.Expression(latex, var_resolver=plc_resolver, func_resolver=func_resolver)
+        self.namespace = namespace
+
+    def build_expression(self):
+        self.expression.var_resolver = self.plc_resolver
+        self.expression.func_resolver = self.func_resolver
+        self.expression.derive_vars(self.namespace)
+        # print(self.expression.expr)
+        self.expression.derive_funcs()
+        print(self.expression.expr, self.expression.functions, self.expression.variables)
+        self.expression.flatten()
+        # print(self.expression.expr)
+        self.expression.simplify()
+        # print(self.expression.expr)
+        self.expression.build_evaluator()
+        return self.expression
+
+    def evaluate(self, subjects):
+        subject_list = evaluate.SubjectList(subjects)
+        subject_list.get_records(self.record_resolver, self.expression)
+        subject_list.evaluateSubjects(self.expression)
+        return subject_list
+
+    def validate(self):
+        # should be called after build_expression
+        # add safe param to build_expression that calls validate after building
+        pass
