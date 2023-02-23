@@ -6,126 +6,96 @@ from sympy.core.function import AppliedUndef
 # import Expression from sympy
 from sympy.core.expr import Expr
 
-class Func():
-    # TODO:
-    # defines a function object,
-    # a tree structure that is callable and is able to flatten itself out
-    # can be defined with a latex string or a pure python function
-    # wrap eval with a function that takes a string and returns the evaluated value
-    # refactor, move some functions from VAR to here 
-    def __init__(self, name, params=None, latex=None, func=None):
-        self.name = name
-        # self.arguments = arguments
-        # self.latex = latex
-        # self.expression: Optional[Expr] = parse_latex(latex) if latex else None
-        self.expression: Optional[Expression] = Expression(latex) if latex else None
-        self.func = func
-        self.params = params
-
-    def unpack(self, func_resolver):
-        # if self.latex:
-            # self.expression.derive_funcs(var_resolver)
-        func_def = func_resolver(self.name)
-        if func_def['latex']:
-            self.latex = func_def['latex']
-            self.expression = Expression(self.latex)
-            self.expression.derive_funcs()
-        elif func_def['func']:
-            self.func = func_def['func']
-            self.params = self.params
-            
-    
-    def __call__(self, *args):
-        # TODO: allow to pass kwargs instead of args
-        if self.func:
-            return self.func(*args)
-        elif self.expression:
-            expanded = self.expression.eval(*args)
-            # params = self.expression.expression.atoms(Symbol)
-            # to_sub = {p: a for p, a in zip(params, expanded)}
-            # return self.expression.expression.evalf(subs=to_sub)
-            return expanded
-
-class Var():
-    def __init__(self, name, latex=None, namespace=None):
-        self.name = name
-        self.latex = latex
-        self.expression: Optional[Expression] = Expression(latex) if latex else None # can be changed to None if latex param is removed
-        self.symbol = Symbol(name)
-        self.namespace = namespace # namespace of the parent expression, used to identify and unpack the variable
-    
-    def eval(self, resolver):
-        if not self.latex:
-            val = resolver(self.name, self.namespace)
-            return val
-        else:
-            self.expression.eval(val)
-
-    def unpack(self, var_resolver):
-        if self.latex:
-            if self.namespace:
-                var_content = var_resolver(name=self.name, namespce=self.namespace)
-            else:
-                var_content = var_resolver(self.name)
-            self.latex = var_content['latex']
-            self.expression = Expression(self.latex)
-            self.expression.derive_vars(var_content['namespace'])
+# from .imports import Evaluator as MyEvaluator, Var, Func
+import ExpDerive.derive.imports as imports
 
 
-# expressions cannot be leafs, must have child vars or funcs, must have latex
+
+
+# expressions cannot be leafs, must have latex
 class Expression():
-    def __init__(self, latex):
+    def __init__(self, latex, var_resolver=None, func_resolver=None, is_func=False):
         self.latex = latex
-        self.expression: Expr = parse_latex(latex) 
-        self.variables: dict[str, Var] = {}
-        self.functions: dict[str, Func] = {}
+        self.expr: Expr = parse_latex(latex) 
+        self.variables: dict[str, imports.expression_components.Var] = {}
+        self.functions: dict[str, imports.expression_components.Func] = {}
         self.record_resolver = None
         self.flattend = None
         self.eval_resolver = None # built at runtime
-        self.var_resolver = None 
-        self.func_resolver = None
+        self.var_resolver = var_resolver 
+        self.func_resolver = func_resolver
+        self.is_func = is_func
     
     def derive_vars(self, namespace=None):
-        vars = self.expression.atoms(Symbol)
+        vars = self.expr.atoms(Symbol)
         for v in vars:
-            v_obj = Var(name=v, namespace=namespace)
-            v_obj.unpack(self.var_resolver)
-            self.variables[v] = v_obj
+            v_obj = imports.expression_components.Var(name=str(v), namespace=namespace, func_resolver=self.func_resolver, var_resolver=self.var_resolver)
+            v_obj.unpack(self.var_resolver, self.func_resolver)
+            self.variables[str(v)] = v_obj
 
     def derive_funcs(self):
-        func_calls = self.expression.atoms(AppliedUndef)
-        # func_names = set(map(
-        #     lambda f: f.func.__name__,
-        #     func_calls
-        # ))
-        for f in func_calls:
-            f_name = f.func.__name__
-            f_obj = Func(name=f_name)
-            f_obj.unpack(self.func_resolver)
-            self.functions[f_name] = f_obj
+        func_calls = self.expr.atoms(AppliedUndef)
+        func_names = set(map(
+            lambda f: f.func.__name__,
+            func_calls
+        )) # means that each function is only unpacked once even if called in multiple places
+        for f in func_names:
+            # f_name = f.func.__name__
+            f_obj = imports.expression_components.Func(name=f, func_resolver=self.func_resolver, var_resolver=self.var_resolver)
+            f_obj.unpack(self.func_resolver, self.var_resolver)
+            self.functions[f] = f_obj
 
 
-    def flatten_vars(self):
-        pass
+    def flatten_vars(self, params=[]):
+        # for var in self.variables.values():
+        #     if var.expression:
+        #         var.expression.flatten_vars()
+        #         var.expression.flatten_funcs()
+        #         var.expression.simplify()
+        #         self.expr = self.expr.subs(var.symbol, var.expression.expression)
+        non_params = [v for v in self.expr.atoms(Symbol) if str(v) not in params]
+        for var in non_params:
+            print(self.expr, 99, self.variables)
+            var_obj = self.variables[str(var)]
+            if var_obj.expression:
+                var_obj.flatten_var()
+                # var_obj.flatten_funcs()
+                var_obj.expression.simplify()
+                self.expr = self.expr.subs(var, var_obj.expression.expr)
 
     def flatten_funcs(self):
-        pass
+        for func_call in self.expr.atoms(AppliedUndef):
+            func = self.functions[func_call.func.__name__]
+            if func.expression:
+                # may need to return something from the following functions
+                func.flatten_func()
+                subbed = func.sub_args(func_call.args)
+                print(self.expr, 7, subbed, 7,func_call,7,func.expression.expr)
+                self.expr = self.expr.subs(func_call, subbed)
+                print(self.expr, 8)
 
-    def flatten(self):
-        pass
+
+    def flatten(self, params=[]):
+        self.flatten_vars(params=params)
+        print(self.expr, 1)
+        self.simplify()
+        self.flatten_funcs()
+        print(self.expr, 2)
+        self.simplify()
+        self.flattend = True
 
     def simplify(self):
-        pass
+        self.expr = self.expr.evalf()
         
     def eval(self, subjects, *args):
         # params = self.expression.atoms(Symbol)
 
         to_sub = {p: a for p, a in zip(params, args)}
-        value = self.expression.evalf(subs=to_sub)
+        value = self.expr.evalf(subs=to_sub)
         return value
 
     def eval_args(self, *args, **kwargs):
-        value = self.expression.evalf()
+        value = self.expr.evalf()
         # if kwargs:
         #     value = self.
         pairs = zip(self.variables.items(), args)
@@ -137,6 +107,12 @@ class Expression():
     def eval_funcs(self, *args):
         pass
 
+    def build_evaluator(self):
+        self.eval_resolver = imports.evaluate.Evaluator(self)
+        def evaluator(*args):
+            return self.eval_args(*args)
+
+
 class Request():
     pass
     # wrap the request object to make it easier to access the data
@@ -146,24 +122,3 @@ class Request():
 class Stat():
     pass
 
-class Subject():
-    def __init__(self, subject_id):
-        self.subject_id = subject_id
-        self.stats = {}
-        self.value = None
-
-    def eval(self, eval_resolver):
-        self.value = eval_resolver(self.stats)
-
-class SubjectList():
-    def __init__(self, subjects: List[str]):
-        self.subjects: List[Subject] = [Subject(s) for s in subjects]
-
-    def get_records(self, record_resolver, columns):
-        for subject in self.subjects:
-            subject.stats = record_resolver(subject.subject_id, columns)
-        # return self.records
-    
-    def evaluateSubjects(self, eval_resolver):
-        for subject in self.subjects:
-            subject.eval(eval_resolver)
