@@ -28,6 +28,12 @@ class Expression():
     
     def derive_vars(self, namespace=None):
         vars = self.expr.atoms(Symbol)
+        # TODO: implement for functions as well
+        if not self.var_resolver: 
+            self.var_resolver = lambda v: {
+                'name': v,
+                'undefined': True,
+            }
         for v in vars:
             v_obj = imports.expression_components.Var(name=str(v), namespace=namespace, func_resolver=self.func_resolver, var_resolver=self.var_resolver)
             v_obj.unpack(self.var_resolver, self.func_resolver)
@@ -55,7 +61,7 @@ class Expression():
         #         self.expr = self.expr.subs(var.symbol, var.expression.expression)
         non_params = [v for v in self.expr.atoms(Symbol) if str(v) not in params]
         for var in non_params:
-            print(self.expr, 99, self.variables)
+            # print(self.expr, 99, self.variables)
             var_obj = self.variables[str(var)]
             if var_obj.expression:
                 var_obj.flatten_var()
@@ -70,17 +76,17 @@ class Expression():
                 # may need to return something from the following functions
                 func.flatten_func()
                 subbed = func.sub_args(func_call.args)
-                print(self.expr, 7, subbed, 7,func_call,7,func.expression.expr)
+                # print(self.expr, 7, subbed, 7,func_call,7,func.expression.expr)
                 self.expr = self.expr.subs(func_call, subbed)
-                print(self.expr, 8)
+                # print(self.expr, 8)
 
 
     def flatten(self, params=[]):
         self.flatten_vars(params=params)
-        print(self.expr, 1)
+        # print(self.expr, 1)
         self.simplify()
         self.flatten_funcs()
-        print(self.expr, 2)
+        # print(self.expr, 2)
         self.simplify()
         self.flattend = True
 

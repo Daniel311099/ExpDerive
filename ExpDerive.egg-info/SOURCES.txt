@@ -1,9 +1,16 @@
 README.md
 setup.py
 ExpDerive/__init__.py
-ExpDerive/test.py
 ExpDerive.egg-info/PKG-INFO
 ExpDerive.egg-info/SOURCES.txt
 ExpDerive.egg-info/dependency_links.txt
 ExpDerive.egg-info/requires.txt
 ExpDerive.egg-info/top_level.txt
+ExpDerive/derive/__init__.py
+ExpDerive/derive/evaluate.py
+ExpDerive/derive/expression.py
+ExpDerive/derive/expression_components.py
+ExpDerive/derive/imports.py
+ExpDerive/derive/resolve.py
+ExpDerive/derive/types.py
+ExpDerive/derive/validate.py

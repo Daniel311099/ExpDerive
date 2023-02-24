@@ -1,14 +1,14 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(
     name='ExpDerive',
-    version='0.1.4',    
+    version='0.1.8',    
     description='A Python package for deriving custom columns',
     url='https://github.com/Daniel311099/ExpDerive.git',
     author='Daniel Fisaha',
     author_email='DanielFisaha@Gmail.com',
     license='BSD 2-clause',
-    packages=['ExpDerive'],
+    packages=find_packages(),
     install_requires=[
         'numpy',
         "sympy==1.10.1",

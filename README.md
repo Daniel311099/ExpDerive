@@ -1,5 +1,8 @@
 # ExpDerive
 
+SETUP:
+pip install ExpDerive
+
 - latex string is the definition of the function at a given node in the tree, the data in the node is a dict notaining the plc and latex for the exp
 
 - using a namespace variable allows for the use of aliases in the latex string in place of the globally unique column label

@@ -58,14 +58,14 @@ class Var():
 
     def build(self, resolver, func_resolver): # recursive
         # sub_funcs here
-        print(self.expression)
+        # print(self.expression)
         self.sub_funcs(func_resolver)
 
         if self.leaf:
             return
 
         for v in self.expression.atoms(Symbol):
-            print(self.expression)
+            # print(self.expression)
             v_tree = resolver(v, self.namespace)
             v_Var = Var(**v_tree)
             v_Var.build(resolver, func_resolver)
@@ -74,19 +74,19 @@ class Var():
     def flatten(self):
         if self.leaf:
             return 
-        print(self.latex)
-        # print(self.vars)
+        # print(self.latex)
+        # # print(self.vars)
         for k, v in self.vars.items():
             v.flatten()
-            print(self.expression, k, v)
+            # print(self.expression, k, v)
             self.expression = self.expression.subs(Symbol(k), v.expression)
 
-        print('//////////')
+        # print('//////////')
 
     def unpack_func(self, exp, func_resolver):
         # exp = parse_latex(latex)
         funcs = exp.atoms(AppliedUndef)
-        print(funcs, 11, exp)
+        # print(funcs, 11, exp)
 
         for f in funcs:
             func = func_resolver(f.func)
@@ -97,7 +97,7 @@ class Var():
                 definition = definition.subs(p, a)
             unpacked = self.unpack_func(definition, func_resolver)
             exp = exp.subs(f, unpacked)
-        print(exp, 22)
+        # print(exp, 22)
         return exp
 
     def sub_funcs(self, func_resolver):
@@ -109,10 +109,10 @@ class Var():
             definition = parse_latex(func['latex'])
             definition = self.unpack_func(definition, func_resolver)
             params = definition.atoms(Symbol)
-            print( list(zip(params, args)), f, definition)
+            # print( list(zip(params, args)), f, definition)
             for p, a in zip(params, args):
                 definition = definition.subs(p, a)
-            print(definition)
+            # print(definition)
             # self.expression = self.expression.subs(f, Function(func['latex'])(*args))
             self.expression = self.expression.subs(f, definition)
             # add support to unpack nested definitions, custom functions that call other custom functions
@@ -236,7 +236,7 @@ class ExpAPI():
         self.expression.derive_vars(self.namespace)
         # print(self.expression.expr)
         self.expression.derive_funcs()
-        print(self.expression.expr, self.expression.functions, self.expression.variables)
+        # print(self.expression.expr, self.expression.functions, self.expression.variables)
         self.expression.flatten()
         # print(self.expression.expr)
         self.expression.simplify()
@@ -254,3 +254,5 @@ class ExpAPI():
         # should be called after build_expression
         # add safe param to build_expression that calls validate after building
         pass
+
+    # add printing methods
