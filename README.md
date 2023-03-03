@@ -18,3 +18,15 @@ pip install ExpDerive
 - extract the expression phrase from the request and use that to generate the latex string
 
 - use a map of placeholders/aliases(only alphanumeric and should be globally unique, not necassary to encode the actual label), that appear in the latex string, to the unique column labels(allow all characters) in the var_resolver along with the namespace var to identify the column being refered to
+
+- KEY: the models generated are not meant to and don't need to, as the phrases should not be made intentionally ambiguous, it's an easy way to generate the latex string for the expression tree. However lower level apis will be accessable fore more controll of the hyperparameters to produce better models
+
+- define columns and functions in an external file
+
+- add optional flag to download training data for finetuning
+
+- 2 options for classifiers, load trained and serialized model or train from scratch then set that
+
+- any extractor model can be passed to replace the default as long as it implements the extract method 
+
+nlp todolist:
