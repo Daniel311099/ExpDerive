@@ -2,5 +2,15 @@ classifiers:
 - implement classifier models
 
 cli:
+steps:
+1. chose finetune job or train job
+2. chose which model to train
+3. chose to change the default architure
+4. if chose to change the default architure, pass the module and class name of the new architure
+5. enter the location of the training data
+6. load data
+7. confirmation
+8. start training
+9. save the model
 
 api:

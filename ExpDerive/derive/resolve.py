@@ -221,6 +221,8 @@ class ExpTree():
 #         v.func = resolver[v.func]
 #     return exp
 
+# TODO: remove everything above this line
+
 class ExpAPI():
     def __init__(self, latex: str, plc_resolver=None, record_resolver=None, func_resolver=None, namespace=None):
         self.plc_resolver = plc_resolver

@@ -18,14 +18,25 @@ class NlpAPI():
     ):
         self.api_key = api_key
         # fine tuned gpt 3
-        self.preprocessor = ExpressionExtractor(preprocessor) if type(preprocessor) == str else preprocessor
-        self.column_extractor: ColumnExtractor = ColumnExtractor(column_extractor) if type(column_extractor) == str else column_extractor
-        self.func_extractor: FuncExtractor = FuncExtractor(func_extractor) if type(func_extractor) == str else func_extractor
+        self.preprocessor = self.gpt_model_builder(ExpressionExtractor, preprocessor)
+        # self.preprocessor = ExpressionExtractor(preprocessor) if type(preprocessor) == str else preprocessor
+        # self.column_extractor: ColumnExtractor = ColumnExtractor(column_extractor) if type(column_extractor) == str else column_extractor
+        # self.func_extractor: FuncExtractor = FuncExtractor(func_extractor) if type(func_extractor) == str else func_extractor
+        self.column_extractor = self.gpt_model_builder(ColumnExtractor, column_extractor)
+        self.func_extractor = self.gpt_model_builder(FuncExtractor, func_extractor)
         # user made models, must be ivy models
         self.column_classifier = None
         self.func_classifier = None
         # saytex or fine tuned gpt 3
         self.latex_generator = latex_generator
+
+    def gpt_model_builder(self, model_type, model):
+        if type(model) == str:
+            return model_type(engine=model)
+        elif type(model) == model_type:
+            return model
+        else:
+            return model_type(model=model)
 
     # pass filepaths to classifiers, used if the cli was used to train the models, if not allow users to assign their own models to self.column_classifier and self.func_classifier
     def load_column_classifier(self, filepath: str):

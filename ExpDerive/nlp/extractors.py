@@ -29,18 +29,22 @@ class ExpressionExtractor():
     def parse_expression(self, response):
         return response.choices[0].text
     
-class MyExpressionExtractor(ExpressionExtractor):
-    def gpt_call(self, phrase):
-        response = openai.Completion.create(
-            engine=self.engine,
-            prompt=phrase,
-            max_tokens=50,
-            temperature=0.6,
-            top_p=1,
-            frequency_penalty=0,
-            presence_penalty=0,
-        )
-        return response
+    def set_gpt_call(self, gpt_call):
+        self.gpt_call = gpt_call
+
+
+# class MyExpressionExtractor(ExpressionExtractor):
+#     def gpt_call(self, phrase):
+#         response = openai.Completion.create(
+#             engine=self.engine,
+#             prompt=phrase,
+#             max_tokens=50,
+#             temperature=0.6,
+#             top_p=1,
+#             frequency_penalty=0,
+#             presence_penalty=0,
+#         )
+#         return response
 
 
 class ColumnExtractor():

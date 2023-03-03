@@ -1,7 +1,11 @@
-from typing import Optional
+from typing import Optional, TypedDict
 
 from .classifiers import ColumnClassifier, FuncClassifier
 
+class ParsedPhrase(TypedDict):
+    phrase: str
+    latex: str
+    columns: list
 
 class Phrase():
     def __init__(self, phrase: str):
@@ -16,7 +20,7 @@ class Phrase():
         column_classifier: ColumnClassifier,
         func_classifier: Optional[str]=None,
         latex_generator: Optional[str]=None,
-    ):
+    ) -> ParsedPhrase:
         # preprocess(self.phrase)
         # extract columns
         # extract functions
@@ -25,4 +29,8 @@ class Phrase():
         # classify columns
         # classify functions
         # generate latex
-        pass
+        return {
+            'phrase': self.phrase,
+            'latex': self.latex,
+            'columns': columns,
+        }

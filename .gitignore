@@ -1,0 +1,3 @@
+./env_exp_derive/*
+.env
+./.pytest_cache/*
