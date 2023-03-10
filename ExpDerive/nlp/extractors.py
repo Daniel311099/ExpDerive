@@ -1,18 +1,19 @@
 import openai
 
-class ExpressionExtractor():
+class BaseExtractor():
     def __init__(
         self,
-        engine: str = 'ada',
-        model=None,
+        template,
+        engine: str = 'gpt-3.5-turbo',
     ):
+        self.model = None
         self.engine = engine
-        self.model = model
+        self.template = template
 
     def gpt_call(self, phrase):
-        response = openai.Completion.create(
+        response = openai.ChatCompletion.create(
             engine=self.engine,
-            prompt=phrase,
+            messages=self.message_wrapper(self.template + phrase),
             max_tokens=100,
             temperature=0.7,
             top_p=1,
@@ -21,44 +22,47 @@ class ExpressionExtractor():
         )
         return response
     
+    def message_wrapper(self, prompt):
+        return [{
+            "role": "user",
+            "content": prompt
+        }]
+    
+    def parse_response(self, response):
+        entities = response.choices[0].message.content
+        return [
+            self.strip(entity)
+            for entity in entities.split('\n')
+            if entity != ''
+        ]
+    
+    def strip(self, entity):
+        return entity[3:].split('(')[0]
+    
     def extract(self, phrase):
         response = self.gpt_call(phrase)
-        nl_expression = self.parse_expression(response)
-        return nl_expression
-    
-    def parse_expression(self, response):
-        return response.choices[0].text
-    
+        parsed = self.parse_response(response)
+        return parsed
+
     def set_gpt_call(self, gpt_call):
         self.gpt_call = gpt_call
 
-
-# class MyExpressionExtractor(ExpressionExtractor):
-#     def gpt_call(self, phrase):
-#         response = openai.Completion.create(
-#             engine=self.engine,
-#             prompt=phrase,
-#             max_tokens=50,
-#             temperature=0.6,
-#             top_p=1,
-#             frequency_penalty=0,
-#             presence_penalty=0,
-#         )
-#         return response
-
-
-class ColumnExtractor():
+class ColumnExtractor(BaseExtractor):
     def __init__(
         self,
-        engine: str = 'ada',
-        model=None,
+        engine: str = 'gpt-3.5-turbo',
     ):
-        model = None
+        super().__init__(
+            template='Extract all of the distinct column names from the following expression: ',
+            engine=engine,
+        )
 
 class FuncExtractor():
     def __init__(
         self,
-        engine: str = 'ada',
-        model=None,
+        engine: str = 'gpt-3.5-turbo',
     ):
-        model = None
+        super().__init__(
+            template='Extract all of the distinct functions from the following expression: ',
+            engine=engine,
+        )
