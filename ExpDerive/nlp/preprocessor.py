@@ -1,4 +1,4 @@
-from extractors import BaseExtractor
+from .extractors import BaseExtractor
 
 class Preprocessor():
     def __init__(self) -> None:
@@ -17,4 +17,6 @@ class ExpressionExtractor(BaseExtractor):
         )
 
     def parse_response(self, response):
-        return response.choices[0].message.content.split('\n')[0]
+        parsed = response.choices[0].message.content.split('\n')[0]
+        print(parsed)
+        return parsed

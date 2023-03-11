@@ -2,6 +2,7 @@ import openai
 import saytex
 import ivy
 import sklearn
+import numpy as np
 
 # define default architecture
 
@@ -29,58 +30,32 @@ class MyModel(ivy.Module):
         embedding = column_name
         return embedding
     
-# class BaseClassifier():
-#     def __init__(self, model):
-#         self.model = model
-
-#     def train(self, columns):
-#         self.model.fit(columns)
-    
-#     def classify(self, column):
-#         return self.model.predict(column)
-    
-#     def classify_columns(self, columns):
-#         return [
-#             (column, self.classify_column(column))
-#             for column in columns
-#         ]
-
-class ColumnClassifier():
+class BaseClassifier():
     def __init__(self, model):
         self.model = model
 
-    def train(self, columns):
-        self.model.fit(columns)
-
-    def classify_column(self, column):
-        return self.model.predict(column)
-
-    def classify_columns(self, columns):
+    def train(self, descriptions, labels):
+        embs = [self.get_embedding(desc) for desc in descriptions]
+        self.model.fit(embs, labels)
+    
+    def classify(self, description):
+        embedding = self.get_embedding(description)
+        # prediction = model.predict([embedding])[0]
+        return self.model.predict([embedding])[0]
+    
+    def classify_list(self, descriptions):
         return [
-            (column, self.classify_column(column))
-            for column in columns
+            (description, self.classify(description))
+            for description in descriptions
         ]
     
-class FuncClassifier():
+    def get_embedding(self, text, model="text-similarity-ada-001"):
+        return openai.Embedding.create(input = [text], model=model)['data'][0]['embedding']
+
+class ColumnClassifier(BaseClassifier):
     def __init__(self, model):
-        self.model = model
-
-    def train(self, funcs):
-        self.model.fit(funcs)
-
-    def classify_func(self, func):
-        return self.model.predict(func)
-
-    def classify_funcs(self, funcs):
-        return [
-            (func, self.classify_func(func))
-            for func in funcs
-        ]
-
-
-# class FuncClassifier():
-#     def __init__(self, model=None):
-#         self.model = model if model else MyModel()
-
-#     def train(self, funcs):
-#         self.model.fit(funcs, [1 for _ in range(len(funcs))])
+        super().__init__(model)
+    
+class FuncClassifier(BaseClassifier):
+    def __init__(self, model):
+        super().__init__(model)
