@@ -79,12 +79,12 @@ FUNCTIONS = {
     }
 }
 
-def resolver(var, namespace=None):
+def resolver(name, namespace=None):
     try:
-        var = ALIASES[str(var)]
+        name = ALIASES[str(name)]
     except KeyError:
         pass
-    lat = LATEX[str(var)]
+    lat = LATEX[str(name)]
     lat['namespace'] = None
     return lat
 

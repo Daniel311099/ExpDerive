@@ -1,0 +1,4 @@
+{"prompt": "Annotate the arguments from the following expression using @@ to mark the start and ## to mark the end: goals plus assists over 2", "completion": "@@ goals ## plus @@ assists over 2 ##"}
+{"prompt": "Annotate the arguments from the following expression using @@ to mark the start and ## to mark the end: total passes squared", "completion": "@@ total passes ## squared"}
+{"prompt": "Annotate the arguments from the following expression using @@ to mark the start and ## to mark the end: square root of shots taken plus 1", "completion": "square root of @@ shots taken plus 1 ##"}
+{"prompt": "Annotate the arguments from the following expression using @@ to mark the start and ## to mark the end: average of goals scored, goals against and passes", "completion": "average of @@ goals scored, ## @@ goals against and ## @@ passes ##"}

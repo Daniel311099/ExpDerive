@@ -1,0 +1,22 @@
+[
+    {
+        "saytex": "plus",
+        "latex": "+"
+    },
+    {
+        "saytex": "minus",
+        "latex": "-"
+    },
+    {
+        "saytex": "multiplied by",
+        "latex": "\\multiplied by"
+    },
+    {
+        "saytex": "divided by",
+        "latex": "\\div"
+    },
+    {
+        "saytex": "percent of",
+        "latex": "\\%"
+    }
+]

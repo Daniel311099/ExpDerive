@@ -1,0 +1,22 @@
+[
+    {
+        "saytex": "average",
+        "latex": "\\frac{1}{n}\\sum_{i=1}^{n}x_{i}"
+    },
+    {
+        "saytex": "sum",
+        "latex": "\\sum_{i=1}^{n}x_{i}"
+    },
+    {
+        "saytex": "myFunc1",
+        "latex": "\\myFunc1"
+    },
+    {
+        "saytex": "myFunc2",
+        "latex": "\\myFunc2"
+    },
+    {
+        "saytex": "myFunc3",
+        "latex": "\\myFunc3"
+    }
+]

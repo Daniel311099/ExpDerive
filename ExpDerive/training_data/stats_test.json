@@ -1,0 +1,170 @@
+[
+    {
+        "label": "games_starts",
+        "alias": "Starts",
+        "description": "Matches started",
+        "phrasing1": "Started matches",
+        "phrasing2": "Games as starter",
+        "phrasing3": "Starting lineup games"
+    },
+    {
+        "label": "minutes",
+        "alias": "Min",
+        "description": "Minutes played",
+        "phrasing1": "Played minutes",
+        "phrasing2": "Total game time",
+        "phrasing3": "Duration on field"
+    },
+    {
+        "label": "minutes_90s",
+        "alias": "90s",
+        "description": "Number of 90-minute matches played",
+        "phrasing1": "90-minute games",
+        "phrasing2": "Matches (90 min)",
+        "phrasing3": "Games (90 min)"
+    },
+    {
+        "label": "goals",
+        "alias": "Gls",
+        "description": "Goals scored",
+        "phrasing1": "Scored goals",
+        "phrasing2": "Total goals scored",
+        "phrasing3": "Goals netted"
+    },
+    {
+        "label": "assists",
+        "alias": "Ast",
+        "description": "Assists",
+        "phrasing1": "Provided assists",
+        "phrasing2": "Total assists made",
+        "phrasing3": "Assists given"
+    },
+    {
+        "label": "goals_assists",
+        "alias": "G+A",
+        "description": "Goals plus assists",
+        "phrasing1": "Goals & assists",
+        "phrasing2": "Scoring involvement",
+        "phrasing3": "Combined goals/assists"
+    },
+    {
+        "label": "goals_pens",
+        "alias": "G-PK",
+        "description": "Goals scored not from penalties",
+        "phrasing1": "Non-penalty goals",
+        "phrasing2": "Goals excl. penalties",
+        "phrasing3": "Goals (no pens)"
+    },
+    {
+        "label": "pens_made",
+        "alias": "PK",
+        "description": "Penalties scored",
+        "phrasing1": "Scored penalties",
+        "phrasing2": "Goals from penalties",
+        "phrasing3": "Penalty conversions"
+    },
+    {
+        "label": "pens_att",
+        "alias": "PKatt",
+        "description": "Penalties attempted",
+        "phrasing1": "Attempted penalties",
+        "phrasing2": "Penalty shots taken",
+        "phrasing3": "Penalty tries"
+    },
+    {
+        "label": "cards_yellow",
+        "alias": "CrdY",
+        "description": "Yellow cards",
+        "phrasing1": "Yellow cards",
+        "phrasing2": "Cautions (Y)",
+        "phrasing3": "Bookings (yellow)"
+    },
+    {
+        "label": "cards_red",
+        "alias": "CrdR",
+        "description": "Red cards",
+        "phrasing1": "Red cards",
+        "phrasing2": "Ejections (R)",
+        "phrasing3": "Expulsions (red)"
+    },
+    {
+        "label": "xg",
+        "alias": "xG",
+        "description": "Expected goals",
+        "phrasing1": "Expected goals",
+        "phrasing2": "Goal predictions",
+        "phrasing3": "Anticipated goals"
+    },
+    {
+        "label": "xg_assist",
+        "alias": "xAG",
+        "description": "Expected assists",
+        "phrasing1": "Expected assists",
+        "phrasing2": "Assist predictions",
+        "phrasing3": "Anticipated assists"
+    },
+    {
+        "label": "progressive_carries",
+        "alias": "PrgC",
+        "description": "Progressive carries",
+        "phrasing1": "Progressive carries",
+        "phrasing2": "Advancing dribbles",
+        "phrasing3": "Forward ball carries"
+    },
+    {
+        "label": "progressive_passes",
+        "alias": "PrgP",
+        "description": "Progressive passes",
+        "phrasing1": "Progressive passes",
+        "phrasing2": "Forward passes",
+        "phrasing3": "Advancing passes"
+    },
+    {
+        "label": "progressive_passes_received",
+        "alias": "PrgR",
+        "description": "Progressive passes received",
+        "phrasing1": "Progressive passes received",
+        "phrasing2": "Received forward passes",
+        "phrasing3": "Advancing passes received"
+    },
+    {
+        "label": "goals_per90",
+        "alias": "Gls",
+        "description": "Goals scored per 90 minutes",
+        "phrasing1": "Goals/90min",
+        "phrasing2": "Scoring rate (per 90)",
+        "phrasing3": "Goals per 90min"
+    },
+    {
+        "label": "assists_per90",
+        "alias": "Ast",
+        "description": "Assists per 90 minutes",
+        "phrasing1": "Assists/90min",
+        "phrasing2": "Assist rate (per 90)",
+        "phrasing3": "Assists per 90min"
+    },
+    {
+        "label": "goals_assists_per90",
+        "alias": "G+A",
+        "description": "Goals plus assists per 90 minutes",
+        "phrasing1": "G+A/90min",
+        "phrasing2": "Scoring involvement rate (per 90)",
+        "phrasing3": "Goals+Assists per 90min"
+    },
+    {
+        "label": "xg_per90",
+        "alias": "xG",
+        "description": "Expected goals per 90 minutes",
+        "phrasing1": "xG/90min",
+        "phrasing2": "Goal predictions (per 90)",
+        "phrasing3": "Expected goals per 90min"
+    },
+    {
+        "label": "xg_assist_per90",
+        "alias": "xAG",
+        "description": "Expected assists per 90 minutes",
+        "phrasing1": "xA/90min",
+        "phrasing2": "Assist predictions (per 90)",
+        "phrasing3": "Expected assists per 90min"
+    }
+]

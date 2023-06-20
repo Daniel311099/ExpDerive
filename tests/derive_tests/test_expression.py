@@ -6,6 +6,6 @@ from tests.resolver import resolver
 def test_build_tree():
     tree = resolve.ExpTree('x+\\frac{y}{2}', 'g', resolver)
     tree.build_expression()
-    print(tree.tree.expression)
+    print('\n'+str(tree.tree.expression))
     print('/////////////')
     assert str(tree.tree.expression).replace(' ','') == 'ast*2+pos/2-5/2'

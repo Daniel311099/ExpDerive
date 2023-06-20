@@ -1,0 +1,260 @@
+[
+    {
+        "phrase": "goals plus assists over 2",
+        "root_func": [1, 2],
+        "type": "infix",
+        "args": []
+    },
+    {
+        "phrase": "total passes squared",
+        "root_func": [2, 3],
+        "type": "suffix",
+        "args": [2]
+    },
+    {
+        "phrase": "square root of shots taken plus 1",
+        "root_func": [0, 3],
+        "type": "prefix",
+        "args": [7]
+    },
+    {
+        "phrase": "average of goals scored, goals against and passes",
+        "root_func": [0, 2],
+        "type": "prefix",
+        "args": [4, 7, 8]
+    },
+    {
+        "phrase": "a plus b over c",
+        "root_func": [1, 2],
+        "type": "infix",
+        "args": []
+    },
+    {
+        "phrase": "sum of var1 and var2 all divided by 3",
+        "root_func": [5, 8],
+        "type": "infix",
+        "args": []
+    },
+    {
+        "phrase": "var1 divided by var2 multiplied by var3 plus var4",
+        "root_func": [2, 4, 6],
+        "type": "infix",
+        "args": [8]
+    },
+    {
+        "phrase": "var1 minus var2 multiplied by var3 divided by var4",
+        "root_func": [1, 2, 5],
+        "type": "infix",
+        "args": [7]
+    },
+    {
+        "phrase": "var1 squared plus var2 squared multiplied by var3",
+        "root_func": [2, 4, 6],
+        "type": "infix",
+        "args": [8]
+    },
+    {
+        "phrase": "var1 multiplied by var2 plus var3 divided by var4",
+        "root_func": [1, 2, 5],
+        "type": "infix",
+        "args": [7]
+    },
+    {
+        "phrase": "var1 minus var2 divided by var3 multiplied by var4",
+        "root_func": [1, 2, 4],
+        "type": "infix",
+        "args": [6, 8]
+    },
+    {
+        "phrase": "var1 plus var2 divided by var3 multiplied by var4",
+        "root_func": [1, 2, 4],
+        "type": "infix",
+        "args": [6, 8]
+    },
+    {
+        "phrase": "var1 divided by var2 plus var3 multiplied by var4",
+        "root_func": [2, 4, 6],
+        "type": "infix",
+        "args": [8]
+    },
+    {
+        "phrase": "var1 multiplied by var2 minus var3 divided by var4",
+        "root_func": [1, 2, 5],
+        "type": "infix",
+        "args": [7]
+    },
+    {
+        "phrase": "var1 plus var2 squared divided by var3",
+        "root_func": [1, 4, 6],
+        "type": "infix",
+        "args": [8]
+    },
+    {
+        "phrase": "var1 squared multiplied by var2 divided by var3",
+        "root_func": [2, 4],
+        "type": "infix",
+        "args": [6]
+    },
+    {
+        "phrase": "var1 multiplied by var2 divided by var3 squared",
+        "root_func": [1, 2, 4],
+        "type": "infix",
+        "args": [6]
+    },
+    {
+        "phrase": "var1 divided by square root of var2 plus var3",
+        "root_func": [2, 4],
+        "type": "infix",
+        "args": [7]
+    },
+    {
+        "phrase": "var1 multiplied by var2 squared divided by var3",
+        "root_func": [1, 4, 6],
+        "type": "infix",
+        "args": [8]
+    },
+    {
+        "phrase": "var1 squared divided by var2 multiplied by var3",
+        "root_func": [2, 4],
+        "type": "infix",
+        "args": [6]
+    },
+    {
+        "phrase": "goals plus assists over 2",
+        "root_func": [1, 2],
+        "type": "infix",
+        "args": []
+    },
+    {
+        "phrase": "total passes squared",
+        "root_func": [2, 3],
+        "type": "suffix",
+        "args": [2]
+    },
+    {
+        "phrase": "square root of shots taken plus 1",
+        "root_func": [0, 3],
+        "type": "prefix",
+        "args": [7]
+    },
+    {
+        "phrase": "average of goals scored, goals against and passes",
+        "root_func": [0, 2],
+        "type": "prefix",
+        "args": [4, 7, 8]
+    },
+    {
+        "phrase": "a plus b over c",
+        "root_func": [1, 2],
+        "type": "infix",
+        "args": []
+    },
+    {
+        "phrase": "sum of var1 and var2 all divided by 3",
+        "root_func": [5, 8],
+        "type": "infix",
+        "args": []
+    },
+    {
+        "phrase": "square root of var1 minus var2 multiplied by var3",
+        "root_func": [0, 1],
+        "type": "prefix",
+        "args": [2, 4]
+    },
+    {
+        "phrase": "var1 squared divided by var2 plus var3",
+        "root_func": [3, 7],
+        "type": "infix",
+        "args": []
+    },
+    {
+        "phrase": "average of var1, var2, and var3",
+        "root_func": [4, 10, 16],
+        "type": "prefix",
+        "args": []
+    },
+    {
+        "phrase": "var1 plus var2 minus var3 multiplied by var4",
+        "root_func": [1, 2, 5],
+        "type": "infix",
+        "args": [7]
+    },
+    {
+        "phrase": "var1 squared plus var2 squared minus var3 squared",
+        "root_func": [2, 4, 6],
+        "type": "infix",
+        "args": []
+    },
+    {
+        "phrase": "var1 plus var2 divided by var3",
+        "root_func": [1, 2, 4],
+        "type": "infix",
+        "args": []
+    },
+    {
+        "phrase": "square root of var1 multiplied by square root of var2",
+        "root_func": [0, 3],
+        "type": "prefix",
+        "args": [5]
+    },
+    {
+        "phrase": "var1 divided by var2 multiplied by var3",
+        "root_func": [2, 4],
+        "type": "infix",
+        "args": [6]
+    },
+    {
+        "phrase": "var1 minus var2 plus var3 divided by var4",
+        "root_func": [1, 2, 6],
+        "type": "infix",
+        "args": [8]
+    },
+    {
+        "phrase": "var1 squared divided by var2 squared",
+        "root_func": [2, 4],
+        "type": "infix",
+        "args": []
+    },
+    {
+        "phrase": "goals plus assists over 2",
+        "root_func": [1, 2],
+        "type": "infix",
+        "args": []
+    },
+    {
+        "phrase": "total passes squared",
+        "root_func": [2, 3],
+        "type": "suffix",
+        "args": [2]
+    },
+    {
+        "phrase": "square root of shots taken plus 1",
+        "root_func": [0, 3],
+        "type": "prefix",
+        "args": [7]
+    },
+    {
+        "phrase": "average of goals scored, goals against and passes",
+        "root_func": [0, 2],
+        "type": "prefix",
+        "args": [4, 7, 8]
+    },
+    {
+        "phrase": "a plus b over c",
+        "root_func": [1, 2],
+        "type": "infix",
+        "args": []
+    },
+    {
+        "phrase": "sum of var1 and var2 all divided by 3",
+        "root_func": [5, 8],
+        "type": "infix",
+        "args": []
+    },
+    {
+        "phrase": "square root of var1 minus var2 multiplied by var3",
+        "root_func": [0, 1],
+        "type": "prefix",
+        "args": [2, 4]
+    }
+]

@@ -29,4 +29,9 @@ pip install ExpDerive
 
 - any extractor model can be passed to replace the default as long as it implements the extract method 
 
+- if the description used to refer to a stat describes it's derivation then it may not be recognised a s a "distinct metric". The raw stat being refred to will be extracted and the required operations will be performed when evaluated to dynamically produce the custom stat
+
 nlp todolist:
+- add ability to parse more complicated phrase and produce the expression phrase
+- dont always return a prediction if the confidence is low, have a high standard to prevent substrings being misclassified if they were incorrectly interpreted as stats
+- use data-tip to get the full description of the stat to use produce the embeddings for the classifier

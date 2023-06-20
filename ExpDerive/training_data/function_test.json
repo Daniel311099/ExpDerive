@@ -1,0 +1,104 @@
+{
+    "operators":
+        [{
+            "saytex": "plus",
+            "latex": "+",
+            "phrasing1": "Addition",
+            "phrasing2": "Sum",
+            "phrasing3": "Plus"
+        },
+        {
+            "saytex": "minus",
+            "latex": "-",
+            "phrasing1": "Subtraction",
+            "phrasing2": "Difference",
+            "phrasing3": "Minus"
+        },
+        {
+            "saytex": "multiplied by",
+            "latex": "\\multiplied by",
+            "phrasing1": "Multiplication",
+            "phrasing2": "Times",
+            "phrasing3": "Product"
+        },
+        {
+            "saytex": "divided by",
+            "latex": "\\div",
+            "phrasing1": "Division",
+            "phrasing2": "Divided by",
+            "phrasing3": "Quotient"
+        },
+        {
+            "saytex": "percent of",
+            "latex": "\\%",
+            "phrasing1": "Percentage of",
+            "phrasing2": "Percent of",
+            "phrasing3": "Proportion"
+        }],
+    "functions": [
+        {
+            "saytex": "natural logarithm",
+            "latex": "\\ln",
+            "phrasing1": "Natural log",
+            "phrasing2": "ln function",
+            "phrasing3": "Logarithm (base e)"
+        },
+        {
+            "saytex": "greatest common divisor",
+            "latex": "\\gcd",
+            "phrasing1": "GCD",
+            "phrasing2": "Greatest divisor",
+            "phrasing3": "Largest common factor"
+        },
+        {
+            "saytex": "square root",
+            "latex": "\\sqrt",
+            "phrasing1": "Square root",
+            "phrasing2": "Root square",
+            "phrasing3": "Sqrt function"
+        },
+        {
+            "saytex": "logarithm",
+            "latex": "\\log",
+            "phrasing1": "Log",
+            "phrasing2": "Logarithm function",
+            "phrasing3": "Logarithmic value"
+        },
+        {
+            "saytex": "factorial",
+            "latex": "!",
+            "left_space": 0,
+            "phrasing1": "Factorial",
+            "phrasing2": "Fact function",
+            "phrasing3": "Product of integers"
+        },
+        {
+            "saytex": "absolute value",
+            "latex": "\\left|\\right|",
+            "phrasing1": "Absolute value",
+            "phrasing2": "Abs function",
+            "phrasing3": "Magnitude (abs)"
+        },
+        {
+            "saytex": "sin",
+            "latex": "\\sin",
+            "phrasing1": "Sine",
+            "phrasing2": "Sinus function",
+            "phrasing3": "Trigonometric sine"
+        },
+        {
+            "saytex": "cos",
+            "latex": "\\cos",
+            "phrasing1": "Cosine",
+            "phrasing2": "Cosinus function",
+            "phrasing3": "Trigonometric cosine"
+        },
+        {
+            "saytex": "tan",
+            "latex": "\\tan",
+            "phrasing1": "Tangent",
+            "phrasing2": "Tangent function",
+            "phrasing3": "Trigonometric tangent"
+        }
+    ]
+}

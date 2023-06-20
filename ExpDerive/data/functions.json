@@ -1,0 +1,39 @@
+[
+    {
+        "saytex": "natural logarithm",
+        "latex": "\\ln"
+    },
+    {
+        "saytex": "greatest common divisor",
+        "latex": "\\gcd"
+    },
+    {
+        "saytex": "square root",
+        "latex": "\\sqrt"
+    },
+    {
+        "saytex": "logarithm",
+        "latex": "\\log"
+    },
+    {
+        "saytex": "factorial",
+        "latex": "!",
+        "left_space": 0
+    },
+    {
+        "saytex": "absolute value",
+        "latex": "\\left|\\right|"
+    },
+    {
+        "saytex": "sin",
+        "latex": "\\sin"
+    },
+    {
+        "saytex": "cos",
+        "latex": "\\cos"
+    },
+    {
+        "saytex": "tan",
+        "latex": "\\tan"
+    }
+]

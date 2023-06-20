@@ -1,0 +1,187 @@
+[
+    {
+        "label": "ranker",
+        "description": "<strong>Rank</strong><br>This is a count of the rows from top to bottom.<br>It is recalculated following the sorting of a column.",
+        "alias": "Rk"
+    },
+    {
+        "label": "player",
+        "description": null,
+        "alias": "Player"
+    },
+    {
+        "label": "nationality",
+        "description": "Nationality of the player.<br>First, we check our records in international play at senior level.<br>Then youth level.<br>Then citizenship presented on wikipedia.<br>Finally, we use their birthplace when available.",
+        "alias": "Nation"
+    },
+    {
+        "label": "position",
+        "description": "<strong>Position</strong><br>Position most commonly played by the player<br>GK - Goalkeepers<br>DF - Defenders<br>MF - Midfielders<br>FW - Forwards<br>FB - Fullbacks<br>LB - Left Backs<br>RB - Right Backs<br>CB - Center Backs<br>DM - Defensive Midfielders<br>CM - Central Midfielders<br>LM - Left Midfielders<br>RM - Right Midfielders<br>WM - Wide Midfielders<br>LW - Left Wingers<br>RW - Right Wingers<br>AM - Attacking Midfielders<br>",
+        "alias": "Pos"
+    },
+    {
+        "label": "team",
+        "description": null,
+        "alias": "Squad"
+    },
+    {
+        "label": "age",
+        "description": "<strong>Current age</strong><br>Age at season start<br>Given on August 1 for winter leagues<br>and February 1 for summer leagues.",
+        "alias": "Age"
+    },
+    {
+        "label": "birth_year",
+        "description": "<strong>Year of birth</strong><br>",
+        "alias": "Born"
+    },
+    {
+        "label": "games",
+        "description": "<strong>Matches Played</strong><br>Matches Played by the player or squad",
+        "alias": "MP"
+    },
+    {
+        "label": "games_starts",
+        "description": "Game or games started by player",
+        "alias": "Starts"
+    },
+    {
+        "label": "minutes",
+        "description": "<strong>Minutes</strong><br>",
+        "alias": "Min"
+    },
+    {
+        "label": "minutes_90s",
+        "description": "<strong>90s Played</strong><br><strong>90s played</strong><br>Minutes played divided by 90",
+        "alias": "90s"
+    },
+    {
+        "label": "goals",
+        "description": "<strong>Goals</strong><br>Goals scored or allowed",
+        "alias": "Gls"
+    },
+    {
+        "label": "assists",
+        "description": "<strong>Assists</strong><br>Assists",
+        "alias": "Ast"
+    },
+    {
+        "label": "goals_assists",
+        "description": "<strong>Goals + Assists</strong><br>Goals and Assists",
+        "alias": "G+A"
+    },
+    {
+        "label": "goals_pens",
+        "description": "<strong>Non-Penalty Goals</strong><br>Non-Penalty Goals",
+        "alias": "G-PK"
+    },
+    {
+        "label": "pens_made",
+        "description": "<strong>Penalty Kicks Made</strong><br>Penalty Kicks Made",
+        "alias": "PK"
+    },
+    {
+        "label": "pens_att",
+        "description": "<strong>Penalty Kicks Attempted</strong><br>Penalty Kicks Attempted",
+        "alias": "PKatt"
+    },
+    {
+        "label": "cards_yellow",
+        "description": "<strong>Yellow Cards</strong><br>Yellow Cards",
+        "alias": "CrdY"
+    },
+    {
+        "label": "cards_red",
+        "description": "<strong>Red Cards</strong><br>Red Cards",
+        "alias": "CrdR"
+    },
+    {
+        "label": "xg",
+        "description": "Expected Goals<br>xG totals include penalty kicks, but do not include penalty shootouts (unless otherwise noted).<br>Provided by Opta.<br>An underline indicates there is a match that is missing data, but will be updated when available.",
+        "alias": "xG"
+    },
+    {
+        "label": "npxg",
+        "description": "<strong>Non-Penalty xG</strong><br><strong>Non-Penalty Expected Goals</strong><br>Provided by Opta.<br>An underline indicates there is a match that is missing data, but will be updated when available.",
+        "alias": "npxG"
+    },
+    {
+        "label": "xg_assist",
+        "description": "<strong>Expected Assisted Goals</strong><br>xG which follows a pass that assists a shot<br>Provided by Opta.<br>An underline indicates there is a match that is missing data, but will be updated when available.",
+        "alias": "xAG"
+    },
+    {
+        "label": "npxg_xg_assist",
+        "description": "<strong>npxG + xAG</strong><br>Non-Penalty Expected Goals plus Assisted Goals<br>xG totals include penalty kicks, but do not include penalty shootouts (unless otherwise noted).<br>Provided by Opta.<br>An underline indicates there is a match that is missing data, but will be updated when available.<br>Minimum 30 minutes played per squad game to qualify as a leader",
+        "alias": "npxG+xAG"
+    },
+    {
+        "label": "progressive_carries",
+        "description": "<strong>Progressive Carries</strong><br>Carries that move the ball towards the opponent's goal line at least 10 yards from its furthest point in the last six passes, or any carry into the penalty area. Excludes carries which end in the defending 50% of the pitch",
+        "alias": "PrgC"
+    },
+    {
+        "label": "progressive_passes",
+        "description": "<strong>Progressive Passes</strong><br>Progressive Passes<br>Completed passes that move the ball towards the opponent's goal line at least 10 yards from its furthest point in the last six passes, or any completed pass into the penalty area. Excludes passes from the defending 40% of the pitch",
+        "alias": "PrgP"
+    },
+    {
+        "label": "progressive_passes_received",
+        "description": "<strong>Progressive Passes Rec</strong><br>Progressive Passes Received<br>Completed passes that move the ball towards the opponent's goal line at least 10 yards from its furthest point in the last six passes, or any completed pass into the penalty area. Excludes passes from the defending 40% of the pitch",
+        "alias": "PrgR"
+    },
+    {
+        "label": "goals_per90",
+        "description": "<strong>Goals/90</strong><br>Goals Scored per 90 minutes<br>Minimum 30 minutes played per squad game to qualify as a leader",
+        "alias": "Gls"
+    },
+    {
+        "label": "assists_per90",
+        "description": "<strong>Assists/90</strong><br>Assists per 90 minutes<br>Minimum 30 minutes played per squad game to qualify as a leader",
+        "alias": "Ast"
+    },
+    {
+        "label": "goals_assists_per90",
+        "description": "<strong>Goals + Assists/90</strong><br>Goals and Assists per 90 minutes<br>Minimum 30 minutes played per squad game to qualify as a leader",
+        "alias": "G+A"
+    },
+    {
+        "label": "goals_pens_per90",
+        "description": "<strong>Non-Penalty Goals/90</strong><br>Goals minus Penalty Kicks made per 90 minutes<br>Minimum 30 minutes played per squad game to qualify as a leader",
+        "alias": "G-PK"
+    },
+    {
+        "label": "goals_assists_pens_per90",
+        "description": "<strong>Non-Penalty Goals + Assists/90</strong><br>Goals plus Assists minus Penalty Kicks made per 90 minutes<br>Minimum 30 minutes played per squad game to qualify as a leader",
+        "alias": "G+A-PK"
+    },
+    {
+        "label": "xg_per90",
+        "description": "<strong>xG/90</strong><br>Expected Goals per 90 minutes<br>xG totals include penalty kicks, but do not include penalty shootouts (unless otherwise noted).<br>Provided by Opta.<br>An underline indicates there is a match that is missing data, but will be updated when available.<br>Minimum 30 minutes played per squad game to qualify as a leader",
+        "alias": "xG"
+    },
+    {
+        "label": "xg_assist_per90",
+        "description": "<strong>xAG/90</strong><br>Expected Assisted Goals per 90 minutes<br>Provided by Opta.<br>An underline indicates there is a match that is missing data, but will be updated when available.<br>Minimum 30 minutes played per squad game to qualify as a leader",
+        "alias": "xAG"
+    },
+    {
+        "label": "xg_xg_assist_per90",
+        "description": "<strong>xG + xAG/90</strong><br>Expected Goals plus Assisted Goals per 90 minutes<br>xG totals include penalty kicks, but do not include penalty shootouts (unless otherwise noted).<br>Provided by Opta.<br>An underline indicates there is a match that is missing data, but will be updated when available.<br>Minimum 30 minutes played per squad game to qualify as a leader",
+        "alias": "xG+xAG"
+    },
+    {
+        "label": "npxg_per90",
+        "description": "<strong>npxG/90</strong><br>Non-Penalty Expected Goals per 90 minutes<br>Provided by Opta.<br>An underline indicates there is a match that is missing data, but will be updated when available.<br>Minimum 30 minutes played per squad game to qualify as a leader",
+        "alias": "npxG"
+    },
+    {
+        "label": "npxg_xg_assist_per90",
+        "description": "<strong>npxG + xAG</strong><br>Non-Penalty Expected Goals plus Assisted Goals per 90 minutes<br>Provided by Opta.<br>An underline indicates there is a match that is missing data, but will be updated when available.<br>Minimum 30 minutes played per squad game to qualify as a leader",
+        "alias": "npxG+xAG"
+    },
+    {
+        "label": "matches",
+        "description": null,
+        "alias": "Matches"
+    }
+]

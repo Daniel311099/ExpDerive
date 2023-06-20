@@ -1,0 +1,180 @@
+[
+    {
+        "lable": "ranker",
+        "alias": "Rk"
+    },
+    {
+        "lable": "player",
+        "alias": "Player"
+    },
+    {
+        "lable": "nationality",
+        "alias": "Nation"
+    },
+    {
+        "lable": "position",
+        "alias": "Pos"
+    },
+    {
+        "lable": "team",
+        "alias": "Squad"
+    },
+    {
+        "lable": "age",
+        "alias": "Age"
+    },
+    {
+        "lable": "birth_year",
+        "alias": "Born"
+    },
+    {
+        "lable": "games",
+        "alias": "MP",
+        "description": "matches played"
+    },
+    {
+        "lable": "games_starts",
+        "alias": "Starts",
+        "description": "matches started"
+    },
+    {
+        "lable": "minutes",
+        "alias": "Min",
+        "description": "minutes played"
+    },
+    {
+        "lable": "minutes_90s",
+        "alias": "90s",
+        "description": "number of 90 minute matches played"
+    },
+    {
+        "lable": "goals",
+        "alias": "Gls",
+        "description": "goals scored"
+    },
+    {
+        "lable": "assists",
+        "alias": "Ast",
+        "description": "assists"
+    },
+    {
+        "lable": "goals_assists",
+        "alias": "G+A",
+        "description": "goals plus assists"
+    },
+    {
+        "lable": "goals_pens",
+        "alias": "G-PK",
+        "description": "goals scored not from penalties"
+    },
+    {
+        "lable": "pens_made",
+        "alias": "PK",
+        "description": "penalties scored"
+    },
+    {
+        "lable": "pens_att",
+        "alias": "PKatt",
+        "description": "penalties attempted"
+    },
+    {
+        "lable": "cards_yellow",
+        "alias": "CrdY",
+        "description": "yellow cards"
+    },
+    {
+        "lable": "cards_red",
+        "alias": "CrdR",
+        "description": "red cards"
+    },
+    {
+        "lable": "xg",
+        "alias": "xG",
+        "description": "expected goals"
+    },
+    {
+        "lable": "npxg",
+        "alias": "npxG",
+        "description": "expected goals not from penalties"
+    },
+    {
+        "lable": "xg_assist",
+        "alias": "xAG",
+        "description": "expected assists"
+    },
+    {
+        "lable": "npxg_xg_assist",
+        "alias": "npxG+xAG",
+        "description": "expected goals plus expected assists not from penalties"
+    },
+    {
+        "lable": "progressive_carries",
+        "alias": "PrgC",
+        "description": "progressive carries"
+    },
+    {
+        "lable": "progressive_passes",
+        "alias": "PrgP",
+        "description": "progressive passes"
+    },
+    {
+        "lable": "progressive_passes_received",
+        "alias": "PrgR",
+        "description": "progressive passes received"
+    },
+    {
+        "lable": "goals_per90",
+        "alias": "Gls",
+        "description": "goals scored per 90 minutes"
+    },
+    {
+        "lable": "assists_per90",
+        "alias": "Ast",
+        "description": "assists per 90 minutes"
+    },
+    {
+        "lable": "goals_assists_per90",
+        "alias": "G+A",
+        "description": "goals plus assists per 90 minutes"
+    },
+    {
+        "lable": "goals_pens_per90",
+        "alias": "G-PK",
+        "description": "goals scored not from penalties per 90 minutes"
+    },
+    {
+        "lable": "goals_assists_pens_per90",
+        "alias": "G+A-PK",
+        "description": "goals plus assists not from penalties per 90 minutes"
+    },
+    {
+        "lable": "xg_per90",
+        "alias": "xG",
+        "description": "expected goals per 90 minutes"
+    },
+    {
+        "lable": "xg_assist_per90",
+        "alias": "xAG",
+        "description": "expected assists per 90 minutes"
+    },
+    {
+        "lable": "xg_xg_assist_per90",
+        "alias": "xG+xAG",
+        "description": "expected goals plus expected assists per 90 minutes"
+    },
+    {
+        "lable": "npxg_per90",
+        "alias": "npxG",
+        "description": "expected goals not from penalties per 90 minutes"
+    },
+    {
+        "lable": "npxg_xg_assist_per90",
+        "alias": "npxG+xAG",
+        "description": "expected goals plus expected assists not from penalties per 90 minutes"
+    },
+    {
+        "lable": "matches",
+        "alias": "Matches",
+        "description": "matches played"
+    }
+]
