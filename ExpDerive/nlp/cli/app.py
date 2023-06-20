@@ -10,8 +10,8 @@ from components import Options
 def app(stdscr: curses.window) -> None:
     click.echo(
         click.style(
-        'Welcome to ExpDerive, a tool to train and persist models',
-        fg='green',
+            'Welcome to ExpDerive, a tool to train and persist models',
+            fg='green',
         )
     )
     model_types = ['fine tune', 'train']
