@@ -30,7 +30,7 @@ class SubjectList():
         columns = expression.expr.atoms(Symbol)
         for subject in self.subjects:
             subject.stats = self.get_record(record_resolver, subject.subject_id, columns)
-        # return self.records
+        # return self.subjects
 
     def get_record(self, record_resolver, subject_id, columns):
         stats = {}
@@ -43,6 +43,12 @@ class SubjectList():
     def evaluateSubjects(self, expression: imports.expression.Expression):
         for subject in self.subjects:
             subject.value = expression.eval_resolver(subject)
+
+    def print_values(self):
+        for subject in self.subjects:
+            print(subject.subject_id, subject.value)
+        # print(self.subjects)
+        # return self.subjects
 
 # syntax to round to 2 decimal places
 

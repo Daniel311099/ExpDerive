@@ -87,7 +87,8 @@ class Var():
 
     def unpack(self, var_resolver, func_resolver):
         if self.namespace:
-            var_content = var_resolver(name=self.name, namespce=self.namespace)
+            print(var_resolver.__code__.co_varnames)
+            var_content = var_resolver(name=self.name, namespace=self.namespace)
         else:
             var_content = var_resolver(self.name)
         try:

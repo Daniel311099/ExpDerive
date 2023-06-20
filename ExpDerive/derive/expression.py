@@ -20,7 +20,7 @@ class Expression():
         self.variables: dict[str, imports.expression_components.Var] = {}
         self.functions: dict[str, imports.expression_components.Func] = {}
         self.record_resolver = None
-        self.flattend = None
+        self.flattened = None
         self.eval_resolver = None # built at runtime
         self.var_resolver = var_resolver 
         self.func_resolver = func_resolver
@@ -94,7 +94,7 @@ class Expression():
         self.expr = self.expr.evalf()
         
     def eval(self, subjects, *args):
-        # params = self.expression.atoms(Symbol)
+        params = self.expression.atoms(Symbol)
 
         to_sub = {p: a for p, a in zip(params, args)}
         value = self.expr.evalf(subs=to_sub)
@@ -115,8 +115,8 @@ class Expression():
 
     def build_evaluator(self):
         self.eval_resolver = imports.evaluate.Evaluator(self)
-        def evaluator(*args):
-            return self.eval_args(*args)
+        # def evaluator(*args):
+        #     return self.eval_args(*args)
 
 
 class Request():

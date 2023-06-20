@@ -18,10 +18,7 @@ class Variable(TypedDict):
 class ResolverReturn(TypedDict):
     latex: str
     variables: Optional[List[Variable]]
-
-
     
-
 
 class Var():
     def __init__(self, name, leaf, latex=None, namespace=None):
